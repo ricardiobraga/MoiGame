@@ -6,7 +6,7 @@ onready var time_count = get_node("Timer")
 
 
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_node("Label").text = str(int(time_count.time_left))
 
 func _on_Timer_timeout():

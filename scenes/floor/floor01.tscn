@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/floor.png" type="Texture" id=1]
-[ext_resource path="res://sprites/player/moi.png" type="Texture" id=2]
-[ext_resource path="res://scripts/management/obstacles.gd" type="Script" id=3]
+[ext_resource path="res://scenes/enemys/Algas.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ShaderMaterial" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
@@ -30,10 +31,8 @@ points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 18.5, 20.5 )
-
 [node name="floor" type="Node2D"]
+material = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0, 20 )
@@ -41,16 +40,12 @@ tile_set = SubResource( 2 )
 cell_size = Vector2( 35, 35 )
 show_collision = true
 collision_layer = 2
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 458752, 0, 0 )
 
-[node name="obstacle" type="StaticBody2D" parent="."]
-position = Vector2( 317, 249 )
-script = ExtResource( 3 )
+[node name="Algas" parent="." instance=ExtResource( 2 )]
 
-[node name="Sprite" type="Sprite" parent="obstacle"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle"]
-position = Vector2( -3.5, 4.5 )
-shape = SubResource( 3 )
+[node name="Algas2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 590, 255 )
+scale = Vector2( 0.7, 0.7 )

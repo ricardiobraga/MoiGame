@@ -1,0 +1,49 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -245.0
+margin_bottom = -273.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 260.0
+margin_bottom = 21.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+margin_left = 63.0
+margin_right = 98.0
+margin_bottom = 14.0
+alignment = 1
+
+[node name="Label1" type="Label" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+margin_right = 9.0
+margin_bottom = 14.0
+text = "A"
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+margin_left = 13.0
+margin_right = 22.0
+margin_bottom = 14.0
+text = "A"
+
+[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+margin_left = 26.0
+margin_right = 35.0
+margin_bottom = 14.0
+text = "A"
+
+[node name="newScore" type="Label" parent="PanelContainer/HBoxContainer"]
+margin_left = 158.0
+margin_right = 190.0
+margin_bottom = 14.0
+text = "0000"

@@ -58,9 +58,7 @@ func jump(delta):
 		jump_count += 1
 	 
 
-func spawn_floor():
-	var moi_x = get_node(".").get_position().x
-	
+
 	
 
 
