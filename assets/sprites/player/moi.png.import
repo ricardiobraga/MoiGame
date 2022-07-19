@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/moi.png-36b51d66d13705d35e7960fd35f19c63.stex"
+path="res://.import/moi.png-e25c9491b8ec4c0a03bb64ebd7bb1779.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/moi.png"
-dest_files=[ "res://.import/moi.png-36b51d66d13705d35e7960fd35f19c63.stex" ]
+source_file="res://assets/sprites/player/moi.png"
+dest_files=[ "res://.import/moi.png-e25c9491b8ec4c0a03bb64ebd7bb1779.stex" ]
 
 [params]
 

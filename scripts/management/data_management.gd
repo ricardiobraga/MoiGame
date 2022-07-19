@@ -36,7 +36,12 @@ func ordenateScore(a, b):
 	if a.score > b.score:		
 		return true	
 	return false
-		
+	
+	
+func ordenateScoreDecrescente(a, b):
+	if a.score < b.score:		
+		return true	
+	return false		
 
 
 func save_hi_score(score_array):	

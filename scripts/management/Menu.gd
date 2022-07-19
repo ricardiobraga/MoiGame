@@ -21,7 +21,8 @@ func _on_start_pressed():
 
 
 func _on_score_pressed():
-	pass # Replace with function body.
+	
+	var change = get_tree().change_scene("res://scenes/management/GameOver.tscn")
 
 
 func _on_quit_pressed():

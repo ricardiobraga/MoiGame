@@ -59,6 +59,8 @@ custom_colors/font_color_shadow = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_constants/shadow_offset_y = 1
 custom_fonts/font = ExtResource( 3 )
 text = "A"
+align = 1
+valign = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/HBoxScores"]
 margin_left = 11.0
@@ -68,6 +70,8 @@ custom_colors/font_color_shadow = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_constants/shadow_offset_y = 1
 custom_fonts/font = ExtResource( 3 )
 text = "A"
+align = 1
+valign = 1
 
 [node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/HBoxScores"]
 margin_left = 22.0
@@ -77,6 +81,8 @@ custom_colors/font_color_shadow = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_constants/shadow_offset_y = 1
 custom_fonts/font = ExtResource( 3 )
 text = "A"
+align = 1
+valign = 1
 
 [node name="PlayerScore" type="Label" parent="PanelContainer/HBoxContainer"]
 margin_left = 154.0

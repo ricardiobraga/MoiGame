@@ -23,7 +23,7 @@ margin_right = 35.0
 margin_bottom = 38.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_right = 70.0
+margin_right = 87.0
 margin_bottom = 36.0
 focus_mode = 0
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -34,18 +34,18 @@ flat = true
 
 [node name="Score" type="Button" parent="VBoxContainer"]
 margin_top = 40.0
-margin_right = 70.0
+margin_right = 87.0
 margin_bottom = 76.0
 focus_mode = 0
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 enabled_focus_mode = 0
-text = "Play"
+text = "Score"
 flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 margin_top = 80.0
-margin_right = 70.0
+margin_right = 87.0
 margin_bottom = 116.0
 focus_mode = 0
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )

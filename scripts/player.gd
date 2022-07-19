@@ -28,21 +28,12 @@ func _physics_process(delta):
 	move(delta)
 	velocity.y +=  fall_speed * delta
 	velocity = move_and_slide(Vector2(0,velocity.y), Vector2.UP)
-	jump(delta)
-	
-	
-
-	
+	jump(delta)	
 
 
 func move(delta):
-	player.move_and_slide(Vector2(200 + delta, 0), Vector2())
-		
-#	if Input.is_action_pressed("ui_right"):
-#		player.move_and_slide(Vector2(200 + delta, 0), Vector2())
-#
-#	if Input.is_action_pressed("ui_left"):
-#		player.move_and_slide(Vector2(-200 - delta, 0), Vector2())
+	player.move_and_slide(Vector2(200 + delta, 0), Vector2())		
+
 
 func jump(delta):
 	if is_on_floor():

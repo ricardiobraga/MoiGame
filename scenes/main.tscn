@@ -28,6 +28,7 @@ position = Vector2( -184, 0 )
 [node name="Camera2D" type="Camera2D" parent="camera"]
 position = Vector2( 441, 150 )
 current = true
+smoothing_enabled = true
 
 [node name="Score" type="Label" parent="camera"]
 margin_left = 618.0
