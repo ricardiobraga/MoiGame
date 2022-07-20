@@ -6,6 +6,8 @@ var hi_score = []
 var render_new_score = false
 var score_cheked = false
 
+var velocity = 200
+
 func _ready():
 	DataManagement.load_hi_score()
 	hi_score.sort_custom(self, "ordenateScore")	

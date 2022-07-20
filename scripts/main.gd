@@ -3,7 +3,7 @@ extends Node2D
 onready var timer = get_node("Timer")
 onready var camera = get_node("camera")
 
-var player = preload("res://scenes/player/moi.tscn")
+var player = preload("res://scenes/prefabs/player/moi.tscn")
 var text_timer = preload("res://scenes/management/label_timer.tscn") 
 
 var velocity = 200
@@ -15,29 +15,40 @@ var intervalo = 3
 var interval_min = 0.8
 var interval_max = 3
 
-var floor_instances = [ preload("res://scenes/floor/floor01.tscn") ]
+var floor_instances = [ 
+						preload("res://scenes/floor/floor_easy_01.tscn"),
+						preload("res://scenes/floor/floor_easy_02.tscn")						
+					  ]
 
 onready var positition_start = get_node("FloorInstances").get_child(0).position.x
-
-
-
 
 
 func _ready():
 	
 	var player_instance = player.instance()
-	player_instance.set_position(Vector2(120,254.085))
+	player_instance.set_position(Vector2(78,316))
 	get_node(".").add_child(player_instance)		
 	
 	var textTimer = text_timer.instance()
-	textTimer.set_position(Vector2(258,149))	
+	textTimer.set_position(Vector2(319,147))	
 	get_node(".").add_child(textTimer)
+
+
 
 
 func _physics_process(delta):
 	if !start:
 		return
 	moveCamera(delta)
+	
+	
+	time += delta
+	
+	if int(time)  == 10:
+		Globals.velocity += 20
+		time = 0
+		
+	
 	spawn_floor(delta)
 	score_control()
 	
@@ -67,20 +78,18 @@ func spawn_floor(_delta):
 			positition_start = get_node("FloorInstances").get_child(0).position.x
 					
 func moveCamera(delta):
-	camera.move_and_slide(Vector2(200 + delta, 0), Vector2())
+	camera.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2())
 
 func _on_start_timeout():
 	start = true
-#	textTimer.get_child(0).queue_free()
 	timer.stop()
 	
-	pass # Replace with function body.
+	
 	
 func score_control():
 	get_node("camera/Score").text = "Score: " + str(Globals.score) 
-	get_node("camera/HiScore").text = "Hi Score: " + str(Globals.hi_score) 
+	
 	
 
 
-func _on_Button_pressed():
-	pass # Replace with function body.
+

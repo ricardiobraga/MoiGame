@@ -1,26 +1,15 @@
 extends Control
 
-var score_input = preload("res://scenes/prefabs/score_input_name.tscn")
-var score_element = preload("res://scenes/prefabs/menu/ScoreList.tscn")
-var score_new_record = preload("res://scenes/prefabs/menu/NewRecord.tscn")
+
+var score_element = preload("res://scenes/management/ScoreList.tscn")
+var score_new_record = preload("res://scenes/management/NewRecord.tscn")
 
 onready var local_score = get_node("Score")
 
-
-
 var score_rank = 1
-
-
-
-
-
 
 func _ready():	
 	loadScoreList()	
-	pass
-	
-	
-
 	
 	
 func saveNewRecord(new_record):	
@@ -33,6 +22,7 @@ func saveNewRecord(new_record):
 	
 	
 func loadScoreList():
+	Globals.hi_score.sort_custom(Globals, "ordenateScore")
 	
 	for item in Globals.hi_score:
 		if score_rank > 5:
@@ -59,17 +49,19 @@ func loadScoreList():
 		
 	if !Globals.score_cheked:
 		get_node("Menu").visible = true
-		
-		
-
-		
+				
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 
-func _on_Jogar_novamente_pressed():
-	Globals.score = 0
+func _on_Jogar_novamente_pressed():	
+	Globals.score = 0	
+	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
 	get_tree().change_scene("res://scenes/main.tscn")
+	
+	
+
+	

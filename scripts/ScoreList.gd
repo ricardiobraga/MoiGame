@@ -1,9 +1,5 @@
 extends Control
 
-
-
-#var score_position = get_global_position()	
-
 var undeline = preload("res://assets/font/undeline.tscn")
 
 var arrayLetters = ["A","B", "C", "D", "E", "F", "G", "H", "I",
@@ -17,16 +13,14 @@ var end_array = 0
 
 var is_new_record = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:	
 	if is_new_record:	
 		instanceUndeline(get_node("PanelContainer/HBoxContainer/HBoxScores/Label1"))
-
+		
 
 func _physics_process(_delta):
-	setLetter()
-#	setLetter(get_node("/root/Control").is_new_record)
-	pass
+	setLetter()	
 	
 func setLetter():
 	
@@ -39,8 +33,7 @@ func setLetter():
 			
 		if  Input.is_action_just_pressed("ui_down") and n < 35  and n_position < 3 and n_position >=0 :
 			n += 1			
-			labels[n_position].text = str(arrayLetters[n])
-			print(labels[n_position])			
+			labels[n_position].text = str(arrayLetters[n])					
 			
 		if  Input.is_action_just_pressed("ui_up") and n > 0  and n_position < 3 and n_position >=0:
 			n -= 1				
@@ -56,9 +49,7 @@ func setLetter():
 				end_array += 1
 				
 				if end_array == 2:
-					saveNewRecord(labels)
-							
-	#				print(DataManagement.score_list)	
+					saveNewRecord(labels)	
 			
 		if Input.is_action_just_pressed("back") and n_position > 0 :
 			labels[n_position].get_child(0).queue_free()
@@ -83,8 +74,7 @@ func saveNewRecord(array):
 	
 func instanceUndeline(node):
 	var l1 = node
-	var underline_instance = undeline.instance()
-	print(l1.get_global_position())
+	var underline_instance = undeline.instance()	
 	underline_instance.set_global_position(Vector2(3.5, 16))	
 	l1.add_child(underline_instance)
 	

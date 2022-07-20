@@ -37,27 +37,27 @@ align = 1
 valign = 1
 
 [node name="Rank" type="Label" parent="."]
-margin_left = 157.0
-margin_top = 102.0
-margin_right = 184.0
-margin_bottom = 116.0
+margin_left = 220.0
+margin_top = 128.0
+margin_right = 247.0
+margin_bottom = 142.0
 text = "rank"
 align = 1
 
 [node name="Name" type="Label" parent="."]
-margin_left = 229.0
-margin_top = 102.0
-margin_right = 265.0
-margin_bottom = 116.0
+margin_left = 292.0
+margin_top = 128.0
+margin_right = 328.0
+margin_bottom = 142.0
 text = "name"
 align = 1
 valign = 1
 
 [node name="Score2" type="Label" parent="."]
-margin_left = 320.0
-margin_top = 102.0
-margin_right = 355.0
-margin_bottom = 116.0
+margin_left = 377.0
+margin_top = 128.0
+margin_right = 412.0
+margin_bottom = 142.0
 text = "score"
 align = 1
 

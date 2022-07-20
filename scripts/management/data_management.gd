@@ -28,6 +28,31 @@ var score_list = [
 		
 ]
 
+
+var reset_score = [
+	{
+		"name": "AAA",
+		"score": 0
+	},
+	{
+		"name": "AAA",
+		"score": 0
+	},	
+	{
+		"name": "AAA",
+		"score": 0
+	},
+	{
+		"name": "AAA",
+		"score": 0
+	},
+	{
+		"name": "AAA",
+		"score": 0
+	},
+]
+
+
 func _ready():	
 	score_list.sort_custom(self, "ordenateScore")	
 	#	print("score: ", score.sort())

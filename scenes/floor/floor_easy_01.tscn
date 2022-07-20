@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/sprites/floor.png" type="Texture" id=1]
-[ext_resource path="res://scenes/enemys/Algas.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
+[ext_resource path="res://scenes/prefabs/enemys/Fish.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ShaderMaterial" id=3]
 
@@ -10,7 +12,7 @@ points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "floor"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( -1, -1, 1604, 34 )
@@ -45,7 +47,10 @@ format = 1
 tile_data = PoolIntArray( 458752, 0, 0 )
 
 [node name="Algas" parent="." instance=ExtResource( 2 )]
+position = Vector2( 54, 254 )
 
-[node name="Algas2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 590, 255 )
-scale = Vector2( 0.7, 0.7 )
+[node name="Algas2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 515, 254 )
+
+[node name="Algas3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 597, 219 )

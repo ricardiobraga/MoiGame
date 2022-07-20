@@ -16,6 +16,7 @@ wait_time = 4.0
 autostart = true
 
 [node name="FloorInstances" type="Node2D" parent="."]
+position = Vector2( 0, 63 )
 
 [node name="floor" parent="FloorInstances" instance=ExtResource( 4 )]
 
@@ -23,31 +24,22 @@ autostart = true
 position = Vector2( 1604, 0 )
 
 [node name="camera" type="KinematicBody2D" parent="."]
-position = Vector2( -184, 0 )
+position = Vector2( -184, -1 )
 
 [node name="Camera2D" type="Camera2D" parent="camera"]
-position = Vector2( 441, 150 )
+position = Vector2( 503, 180 )
 current = true
-smoothing_enabled = true
 
 [node name="Score" type="Label" parent="camera"]
-margin_left = 618.0
-margin_top = 14.0
-margin_right = 679.0
-margin_bottom = 30.0
+margin_left = 738.0
+margin_top = 13.0
+margin_right = 785.0
+margin_bottom = 29.0
+grow_horizontal = 0
+size_flags_vertical = 1
 custom_colors/font_color_shadow = Color( 1, 0.341176, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Score: 000"
+text = "Score: 0"
 uppercase = true
-
-[node name="HiScore" type="Label" parent="camera"]
-visible = false
-margin_left = 530.0
-margin_top = 14.0
-margin_right = 603.0
-margin_bottom = 30.0
-custom_colors/font_color_shadow = Color( 1, 0.341176, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Hi Score: 000"
 
 [connection signal="timeout" from="Timer" to="." method="_on_start_timeout"]
