@@ -71,6 +71,7 @@ func ordenateScoreDecrescente(a, b):
 
 func save_hi_score(score_array):	
 	var save_data = File.new()
+	
 	save_data.open(SAVE_FILE_PATH, File.WRITE)
 	save_data.store_var(score_array)
 	save_data.close()    
@@ -82,3 +83,5 @@ func load_hi_score():
 		save_data.open(SAVE_FILE_PATH, File.READ)
 		Globals.hi_score = save_data.get_var()
 		save_data.close()
+	else:
+		Globals.hi_score = reset_score

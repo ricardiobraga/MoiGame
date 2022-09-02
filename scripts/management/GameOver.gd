@@ -11,6 +11,7 @@ var score_rank = 1
 func _ready():	
 	loadScoreList()	
 	
+
 	
 func saveNewRecord(new_record):	
 	DataManagement.score_list.sort_custom(self, "ordenateScore")	
@@ -60,8 +61,12 @@ func _on_Jogar_novamente_pressed():
 	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
-	get_tree().change_scene("res://scenes/main.tscn")
-	
-	
+	get_tree().change_scene("res://scenes/main.tscn")	
 
-	
+
+func on_voltar_menu_pressed():
+	Globals.score = 0	
+	Globals.velocity = 200
+	Globals.render_new_score = false
+	Globals.score_cheked = false
+	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://scripts/main.gd" type="Script" id=3]
-[ext_resource path="res://scenes/floor/floor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/floor/floor_easy_00.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/watereffect-escuro.png" type="Texture" id=5]
+[ext_resource path="res://assets/watereffect-claro.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -19,9 +22,10 @@ autostart = true
 position = Vector2( 0, 63 )
 
 [node name="floor" parent="FloorInstances" instance=ExtResource( 4 )]
+position = Vector2( 0, -64 )
 
 [node name="floor2" parent="FloorInstances" instance=ExtResource( 4 )]
-position = Vector2( 1604, 0 )
+position = Vector2( 1620, -64 )
 
 [node name="camera" type="KinematicBody2D" parent="."]
 position = Vector2( -184, -1 )
@@ -41,5 +45,35 @@ custom_colors/font_color_shadow = Color( 1, 0.341176, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Score: 0"
 uppercase = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="camera"]
+
+[node name="ParallaxLayer-lights" type="ParallaxLayer" parent="camera/ParallaxBackground"]
+position = Vector2( 236, -151 )
+motion_scale = Vector2( 0.01, 1 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Sprite" type="Sprite" parent="camera/ParallaxBackground/ParallaxLayer-lights"]
+position = Vector2( 404, 330 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer-lightsDark" type="ParallaxLayer" parent="camera/ParallaxBackground"]
+position = Vector2( 236, -151 )
+motion_scale = Vector2( -0.01, 1 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Sprite" type="Sprite" parent="camera/ParallaxBackground/ParallaxLayer-lightsDark"]
+position = Vector2( 404, 330 )
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer-sandBg" type="ParallaxLayer" parent="camera/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 1 )
+motion_mirroring = Vector2( 810, 0 )
+
+[node name="TileMap" type="TileMap" parent="camera/ParallaxBackground/ParallaxLayer-sandBg"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 2228268, 1, 0, 2228291, 17, 0, 2293761, 3, 0, 2293841, 3, 0, 2359296, 0, 0, 2359356, 15, 0, 2424853, 2, 0, 2424862, 9, 0, 2424875, 9, 0, 2490405, 13, 0, 2490459, 18, 0 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_start_timeout"]

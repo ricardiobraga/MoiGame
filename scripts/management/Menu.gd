@@ -22,9 +22,13 @@ func _on_start_pressed():
 
 func _on_score_pressed():
 	
-	var change = get_tree().change_scene("res://scenes/management/GameOver.tscn")
+	var change = get_tree().change_scene("res://scenes/management/ScoreScreen.tscn")
 
 
 func _on_quit_pressed():
 	var change = get_tree().quit()
 	
+
+
+func _on_options_pressed():
+	var change = get_tree().change_scene("res://scenes/management/options.tscn")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "floor"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( -1, -1, 1604, 34 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Viewport")
+
+[node name="floor" type="Node2D"]
+material = SubResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 360 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="TileMap" type="TileMap" parent="Viewport"]
+position = Vector2( 0, 20 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 35, 35 )
+show_collision = true
+collision_layer = 2
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 458752, 0, 0 )
+
+[node name="Algas2" parent="Viewport" instance=ExtResource( 1 )]
+position = Vector2( 515, 254 )
+
+[node name="Algas" parent="Viewport" instance=ExtResource( 2 )]
+position = Vector2( 240, 253 )
+
+[node name="viewPortTexture" type="TextureRect" parent="."]
+texture = SubResource( 4 )

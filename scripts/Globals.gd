@@ -8,7 +8,8 @@ var score_cheked = false
 
 var velocity = 200
 
-func _ready():
+func _ready():	
+	print("teste")
 	DataManagement.load_hi_score()
 	hi_score.sort_custom(self, "ordenateScore")	
 	

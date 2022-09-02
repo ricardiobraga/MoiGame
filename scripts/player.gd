@@ -32,6 +32,7 @@ func _physics_process(delta):
 
 
 func move(delta):
+	$AnimatedSprite.play()
 	player.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2())		
 
 

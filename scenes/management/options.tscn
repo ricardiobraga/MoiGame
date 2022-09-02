@@ -24,7 +24,8 @@ anchor_bottom = 0.5
 margin_left = -42.5
 margin_top = -11.0
 margin_right = 42.5
-margin_bottom = 11.0
+margin_bottom = 37.0
+custom_constants/separation = 20
 alignment = 1
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
@@ -33,4 +34,12 @@ margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "RESET SCORE"
 
+[node name="Voltar" type="Button" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 85.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "VOLTAR"
+
 [connection signal="pressed" from="VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_Voltar_pressed"]

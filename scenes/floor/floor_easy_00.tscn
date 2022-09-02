@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
+[ext_resource path="res://assets/floor.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 810, 46, 0, 46, 0, 32, 810, 32 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "floor"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( -1, -1, 1604, 34 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "floor.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 810, 46 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[node name="floor" type="Node2D"]
+material = SubResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 45, 45 )
+show_collision = true
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 458752, 1, 0, 458770, 1, 0, 458788, 1, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 2097223, 23, 0, 2424833, 22, 0, 2490396, 17, 0, 2490483, 22, 0, 2555933, 3, 0, 2555967, 11, 0, 2556072, 11, 0, 2621451, 9, 0, 2621480, 11, 0, 2621600, 11, 0, 2686996, 12, 0, 2687101, 16, 0, 2687126, 11, 0, 2687144, 18, 0, 2752515, 7, 0, 2752524, 7, 0, 2752542, 4, 0, 2752567, 4, 0, 2752600, 4, 0, 2752641, 18, 0, 2752652, 7, 0, 2752667, 7, 0, 2818091, 4, 0, 2818148, 4, 0, 2818177, 18, 0, 2818184, 18, 0, 2818212, 7, 0 )

@@ -100,29 +100,38 @@ custom_fonts/font = SubResource( 2 )
 text = "Hi Score: 000"
 
 [node name="Menu" type="HBoxContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -86.0
-margin_top = 101.0
-margin_right = 86.0
-margin_bottom = 131.0
+margin_left = -143.5
+margin_top = 113.0
+margin_right = 143.5
+margin_bottom = 143.0
 custom_constants/separation = 40
+alignment = 1
 
 [node name="JogarNovamente" type="Button" parent="Menu"]
-margin_right = 98.0
+margin_left = 18.0
+margin_right = 116.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 3 )
 text = "JOGAR NOVAMENTE"
 
+[node name="Menu" type="Button" parent="Menu"]
+margin_left = 156.0
+margin_right = 194.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+text = "MENU"
+
 [node name="Quit" type="Button" parent="Menu"]
-margin_left = 138.0
-margin_right = 172.0
+margin_left = 234.0
+margin_right = 268.0
 margin_bottom = 30.0
 custom_fonts/font = SubResource( 3 )
 text = "QUIT"
 
 [connection signal="pressed" from="Menu/JogarNovamente" to="." method="_on_Jogar_novamente_pressed"]
+[connection signal="pressed" from="Menu/Menu" to="." method="on_voltar_menu_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
