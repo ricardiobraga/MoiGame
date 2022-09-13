@@ -16,7 +16,8 @@ var interval_min = 0.8
 var interval_max = 3
 
 var floor_instances = [ 
-						preload("res://scenes/floor/floor_easy_01.tscn"),
+						preload("res://scenes/floor/floor_easy_01.tscn"),						
+						
 												
 					  ]
 

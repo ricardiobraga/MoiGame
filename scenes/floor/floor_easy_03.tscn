@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/prefabs/enemys/Algas_g3.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/prefabs/enemys/Algas_g2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/floor.png" type="Texture" id=5]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g4.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/prefabs/enemys/Algas_g5.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 810, 45.296, 0.368042, 45.296, 0.368042, 34.928, 810, 34.928 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "floor"
@@ -31,33 +38,56 @@ points = PoolVector2Array( 1604, 29.4, 0, 29.4, 0, 11.16, 1604, 11.16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
-
-[sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("Viewport")
+1/name = "floor.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 810, 46 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
 [node name="floor" type="Node2D"]
 material = SubResource( 3 )
 
-[node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 640, 360 )
-transparent_bg = true
-render_target_v_flip = true
-
-[node name="TileMap" type="TileMap" parent="Viewport"]
-position = Vector2( 0, 20 )
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
-cell_size = Vector2( 35, 35 )
+cell_size = Vector2( 45, 45 )
 show_collision = true
 collision_layer = 2
-collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 458752, 0, 0 )
+tile_data = PoolIntArray( 458752, 1, 0, 458770, 1, 0 )
 
-[node name="Algas2" parent="Viewport" instance=ExtResource( 1 )]
-position = Vector2( 515, 254 )
+[node name="TileMapBack" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( 2097221, 21, 0, 2162753, 23, 0, 2359427, 9, 0, 2359428, 13, 0, 2424917, 17, 0, 2424960, 1, 0, 2425004, 17, 0, 2556029, 2, 0, 2556044, 6, 0, 2556067, 18, 0, 2556102, 11, 0, 2621578, 10, 0, 2621591, 13, 0, 2687078, 7, 0, 2687154, 4, 0, 2752570, 7, 0, 2752617, 4, 0, 2818056, 7, 0, 2818171, 7, 0 )
 
-[node name="Algas" parent="Viewport" instance=ExtResource( 2 )]
-position = Vector2( 240, 253 )
+[node name="Algas" parent="." instance=ExtResource( 2 )]
+position = Vector2( 321, 329 )
 
-[node name="viewPortTexture" type="TextureRect" parent="."]
-texture = SubResource( 4 )
+[node name="Algas2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 304, 330 )
+
+[node name="Algas4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1490, 331 )
+
+[node name="Algas3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1471, 327 )
+
+[node name="Algas5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 889, 333 )
