@@ -16,12 +16,12 @@ var interval_min = 0.8
 var interval_max = 3
 
 var floor_instances = [ 
-						preload("res://scenes/floor/floor_easy_01.tscn"),						
+						preload("res://scenes/floor/floor_easy_02.tscn"),						
 						
 												
 					  ]
 
-onready var positition_start = get_node("FloorInstances").get_child(0).position.x
+onready var positition_start = get_node("FloorInstances").get_child(0).global_position.x
 
 
 func _ready():
@@ -56,24 +56,26 @@ func _physics_process(delta):
 		
 
 func spawn_floor(_delta):
-	var moi_position = get_node("Moi").position.x
+	var moi_position = get_node("Moi").global_position.x
 	
 	var child_count = get_node("FloorInstances").get_child_count()		
+	print(positition_start)
+	print("Moi:", moi_position)
 	
-	if moi_position >= positition_start + 1900 and child_count < 3:			
+	if moi_position >= positition_start + 1000 and child_count < 3:			
 		var random = RandomNumberGenerator.new()
 		random.randomize()
 		var c =  random.randi_range(0, floor_instances.size() -1)
 		var floor_spawn = floor_instances[c].instance()
 		var n = get_node("FloorInstances").get_child_count()
 #		floor_spawn.set_position(Vector2(0,get_node("FloorInstances").get_child(0).get_position().y + 600))
-		floor_spawn.set_position(Vector2(get_node("FloorInstances").get_child(n - 1).position.x + 1604 , -64))
+		floor_spawn.set_position(Vector2(get_node("FloorInstances").get_child(n - 1).global_position.x + 810 , -64))
 		get_node("FloorInstances").add_child(floor_spawn)		
 		get_node("FloorInstances").get_child(0).queue_free()
 		positition_start = get_node("FloorInstances").get_child(1).position.x
 		
 		
-		if  moi_position >= positition_start + 1800:			
+		if  moi_position >= positition_start + 990:			
 			positition_start = get_node("FloorInstances").get_child(0).position.x
 					
 func moveCamera(delta):

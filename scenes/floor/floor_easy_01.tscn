@@ -67,7 +67,7 @@ cell_size = Vector2( 45, 45 )
 show_collision = true
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 458752, 1, 0, 458770, 1, 0 )
+tile_data = PoolIntArray( 458752, 1, 0 )
 
 [node name="TileMapBack" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -76,7 +76,7 @@ format = 1
 tile_data = PoolIntArray( 2097221, 21, 0, 2162753, 23, 0, 2228226, 23, 0, 2621486, 13, 0, 2752555, 5, 0, 2752564, 5, 0, 2752570, 7, 0, 2818056, 7, 0, 2818083, 5, 0 )
 
 [node name="Algas" parent="." instance=ExtResource( 2 )]
-position = Vector2( 491, 325 )
+position = Vector2( 491, 318 )
 
 [node name="novelo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 306, 293 )

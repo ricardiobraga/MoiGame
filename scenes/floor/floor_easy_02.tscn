@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/prefabs/enemys/Fish_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
 [ext_resource path="res://assets/floor.png" type="Texture" id=5]
 
@@ -58,7 +59,6 @@ points = PoolVector2Array( 810, 45.296, 0.368042, 45.296, 0.368042, 34.928, 810,
 
 [node name="floor" type="Node2D"]
 material = SubResource( 3 )
-position = Vector2( -145, 73 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -66,10 +66,13 @@ cell_size = Vector2( 45, 45 )
 show_collision = true
 collision_layer = 2
 format = 1
-tile_data = PoolIntArray( 458752, 1, 0, 458770, 1, 0 )
+tile_data = PoolIntArray( 458752, 1, 0 )
 
 [node name="TileMapBack" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2097318, 21, 0, 2162811, 23, 0, 2359373, 22, 0, 2359425, 17, 0, 2359427, 9, 0, 2359428, 13, 0, 2424836, 17, 0, 2424838, 17, 0, 2424960, 1, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2556026, 17, 0, 2556044, 6, 0, 2621478, 10, 0, 2621479, 11, 0, 2621578, 10, 0, 2687078, 7, 0, 2687154, 4, 0, 2752570, 7, 0, 2818056, 7, 0 )
+tile_data = PoolIntArray( 2359373, 22, 0, 2424836, 17, 0, 2424838, 17, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2621478, 10, 0, 2621479, 11, 0, 2752570, 7, 0, 2818056, 7, 0 )
+
+[node name="Algas" parent="." instance=ExtResource( 2 )]
+position = Vector2( 796, 321 )
