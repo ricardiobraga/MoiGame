@@ -27,7 +27,7 @@ onready var positition_start = get_node("FloorInstances").get_child(0).global_po
 func _ready():
 	
 	var player_instance = player.instance()
-	player_instance.set_position(Vector2(78,316))
+	player_instance.set_position(Vector2(78,323))
 	get_node(".").add_child(player_instance)		
 	
 	var textTimer = text_timer.instance()
@@ -59,8 +59,6 @@ func spawn_floor(_delta):
 	var moi_position = get_node("Moi").global_position.x
 	
 	var child_count = get_node("FloorInstances").get_child_count()		
-	print(positition_start)
-	print("Moi:", moi_position)
 	
 	if moi_position >= positition_start + 1000 and child_count < 3:			
 		var random = RandomNumberGenerator.new()
@@ -84,6 +82,7 @@ func moveCamera(delta):
 func _on_start_timeout():
 	start = true
 	timer.stop()
+	
 	
 	
 	

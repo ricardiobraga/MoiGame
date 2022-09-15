@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=17]
+offsets = PoolRealArray( 0.0958904, 0.253425, 0.726027, 1 )
+colors = PoolColorArray( 0.129412, 0.231373, 0.337255, 1, 0.262745, 0.533333, 0.545098, 1, 0.317647, 0.843137, 0.823529, 1, 0.223529, 0.752941, 0.756863, 1 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 17 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.47638, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=19]
+emission_shape = 1
+emission_sphere_radius = 0.1
+flag_disable_z = true
+spread = 11.25
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.48
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 0.6
+scale_curve = SubResource( 16 )
+color_ramp = SubResource( 15 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="fishParticles" type="Particles2D" parent="."]
+position = Vector2( -13, 0 )
+amount = 200
+lifetime = 2.0
+process_material = SubResource( 19 )

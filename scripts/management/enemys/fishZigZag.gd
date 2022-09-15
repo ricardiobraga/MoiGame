@@ -7,6 +7,7 @@ export(int) var speed = 2
 var y_position
 var y_pos
 var up_y = true	
+export(float) var y_speed = 80
 
 var jump = false
 
@@ -24,7 +25,27 @@ func _physics_process(delta):
 			
 func move(delta):
 	var x_position = (get_position().x - speed + delta)
-	set_position(Vector2(x_position, get_position().y))	
+	y_variation(delta)	
+	set_position(Vector2(x_position, y_pos))	
+	
+func y_variation(delta):	
+
+	if up_y:			
+		if get_position().y == y_position or get_position().y > y_position - y_speed:
+			y_pos = get_position().y - y_speed * delta		
+			print("1: ", y_pos)
+			return y_pos			
+	
+	if get_position().y < y_position - 10:
+		up_y = false
+		y_pos = get_position().y + y_speed * delta	
+		return y_pos
+	
+	if get_position().y < y_position:
+		up_y = true
+		
+
+		
 
 func _on_body_entered(body):	
 	get_tree().change_scene("res://scenes/management/GameOver.tscn")
