@@ -46,16 +46,17 @@ func setLetter():
 				n = 0
 				instanceUndeline(labels[n_position])
 			if Input.is_action_just_pressed("ui_select") and n_position == 2:
-				end_array += 1
-				
+				end_array += 1				
 				if end_array == 2:
-					saveNewRecord(labels)	
+					saveNewRecord(labels)
+										
 			
-		if Input.is_action_just_pressed("back") and n_position > 0 :
+		if Input.is_action_just_pressed("ui_left") and n_position > 0 :
 			labels[n_position].get_child(0).queue_free()
 			n_position -= 1
 			n = 0
 			instanceUndeline(labels[n_position])
+			
 			
 func saveNewRecord(array):	
 	var player_name = ""
@@ -64,6 +65,7 @@ func saveNewRecord(array):
 			
 	for item in Globals.hi_score:
 		if 	Globals.score > item.score :
+			
 			Globals.hi_score.push_front({ "name": player_name, "score": int(get_node("PanelContainer/HBoxContainer/PlayerScore").text) }) 
 			Globals.hi_score.pop_back()
 			DataManagement.save_hi_score(Globals.hi_score)

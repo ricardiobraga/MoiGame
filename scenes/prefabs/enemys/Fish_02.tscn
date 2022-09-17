@@ -83,40 +83,39 @@ process_material = SubResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
 position = Vector2( 34, 0 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 10, 11 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 9, -12 )
 frames = SubResource( 9 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
 position = Vector2( 18, 1 )
 frames = SubResource( 9 )
+frame = 5
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
 position = Vector2( 27, -15 )
 frames = SubResource( 9 )
+frame = 5
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
 position = Vector2( 29, 14 )
 frames = SubResource( 9 )
+frame = 5
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

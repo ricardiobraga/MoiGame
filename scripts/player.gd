@@ -29,6 +29,7 @@ func _physics_process(delta):
 	move(delta)
 	velocity.y +=  fall_speed * delta
 	velocity = move_and_slide(Vector2(0,velocity.y), Vector2.UP)
+	
 	jump(delta)		
 	squat()
 

@@ -23,6 +23,9 @@ var reset_score = [
 	},
 ]
 
+func _ready():
+	get_node("VBoxContainer/Reset").grab_focus()
+
 
 
 func _on_reset_pressed() -> void:

@@ -77,7 +77,7 @@ func spawn_floor(_delta):
 			positition_start = get_node("FloorInstances").get_child(0).position.x
 					
 func moveCamera(delta):
-	camera.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2())
+	camera.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2()).normalized()
 
 func _on_start_timeout():
 	start = true
@@ -87,7 +87,7 @@ func _on_start_timeout():
 	
 	
 func score_control():
-	get_node("camera/Score").text = "Score: " + str(Globals.score) 
+	get_node("CanvasLayer/Score").text = "Score: " + str(Globals.score) 
 	
 	
 

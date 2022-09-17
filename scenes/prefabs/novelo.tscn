@@ -1,7 +1,29 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/novelo.gd" type="Script" id=1]
 [ext_resource path="res://assets/novelo3.png" type="Texture" id=2]
+[ext_resource path="res://assets/6x6Buble-yellow.png" type="Texture" id=3]
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.64689, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 7.67
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.34
+angular_velocity = 255.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_curve = SubResource( 9 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -37,12 +59,18 @@ radius = 14.0357
 [node name="Area2D" type="Area2D"]
 script = ExtResource( 1 )
 
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, -5 )
+amount = 30
+process_material = SubResource( 10 )
+texture = ExtResource( 3 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 7 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

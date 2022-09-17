@@ -5,7 +5,7 @@
 [ext_resource path="res://scripts/ScoreList.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+bg_color = Color( 0.129412, 0.231373, 0.337255, 0.545098 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -18,20 +18,22 @@ grow_horizontal = 2
 script = ExtResource( 3 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-margin_right = 161.0
+margin_right = 260.0
 margin_bottom = 16.0
 grow_horizontal = 2
+size_flags_horizontal = 7
 custom_styles/panel = SubResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-margin_right = 161.0
+margin_right = 260.0
 margin_bottom = 16.0
 grow_horizontal = 2
 custom_constants/separation = 60
 alignment = 1
 
 [node name="RankPosition" type="Label" parent="PanelContainer/HBoxContainer"]
-margin_right = 5.0
+margin_left = 49.0
+margin_right = 54.0
 margin_bottom = 16.0
 grow_horizontal = 0
 size_flags_horizontal = 4
@@ -45,8 +47,8 @@ valign = 1
 uppercase = true
 
 [node name="HBoxScores" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
-margin_left = 65.0
-margin_right = 94.0
+margin_left = 114.0
+margin_right = 143.0
 margin_bottom = 16.0
 grow_horizontal = 2
 alignment = 1
@@ -85,8 +87,8 @@ align = 1
 valign = 1
 
 [node name="PlayerScore" type="Label" parent="PanelContainer/HBoxContainer"]
-margin_left = 154.0
-margin_right = 161.0
+margin_left = 203.0
+margin_right = 210.0
 margin_bottom = 16.0
 size_flags_horizontal = 0
 custom_colors/font_color_shadow = Color( 0.815686, 0.411765, 0.0862745, 1 )

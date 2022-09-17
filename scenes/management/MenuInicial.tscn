@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/management/Menu.gd" type="Script" id=2]
-[ext_resource path="res://assets/menu/menu_gear.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ParticlesBubles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/watereffect-claro.png" type="Texture" id=5]
 [ext_resource path="res://scripts/ParallaxLayerMovement.gd" type="Script" id=6]
@@ -11,14 +10,15 @@
 [ext_resource path="res://assets/sprites/shark.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 30
+outline_color = Color( 0.815686, 0.411765, 0.0862745, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 150, 53 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 9 )
 region = Rect2( 150, 0, 150, 53 )
 
@@ -38,9 +38,9 @@ region = Rect2( 600, 0, 150, 53 )
 atlas = ExtResource( 9 )
 region = Rect2( 750, 0, 150, 53 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -56,50 +56,49 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -35.0
-margin_top = -38.0
-margin_right = 35.0
-margin_bottom = 38.0
+margin_left = -39.5
+margin_top = -64.0
+margin_right = 39.5
+margin_bottom = 64.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
-margin_right = 87.0
-margin_bottom = 36.0
-focus_mode = 0
-custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+margin_right = 79.0
+margin_bottom = 29.0
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0.0745098, 0.352941, 0.4, 1 )
 custom_fonts/font = SubResource( 1 )
-enabled_focus_mode = 0
-text = "Play"
+text = "JOGAR"
 flat = true
 
 [node name="Score" type="Button" parent="VBoxContainer"]
-margin_top = 40.0
-margin_right = 87.0
-margin_bottom = 76.0
-focus_mode = 0
+margin_top = 33.0
+margin_right = 79.0
+margin_bottom = 62.0
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-enabled_focus_mode = 0
-text = "Score"
+text = "SCORE"
+flat = true
+
+[node name="Opções" type="Button" parent="VBoxContainer"]
+margin_top = 66.0
+margin_right = 79.0
+margin_bottom = 95.0
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "OPÇÕES"
 flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 80.0
-margin_right = 87.0
-margin_bottom = 116.0
-focus_mode = 0
+margin_top = 99.0
+margin_right = 79.0
+margin_bottom = 128.0
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-enabled_focus_mode = 0
-text = "Quit"
+text = "SAIR"
 flat = true
-
-[node name="Button" type="Button" parent="."]
-margin_left = 568.0
-margin_top = 24.0
-margin_right = 615.0
-margin_bottom = 65.0
-icon = ExtResource( 3 )
-expand_icon = true
 
 [node name="Bubles" parent="." instance=ExtResource( 4 )]
 position = Vector2( 328, 358 )
@@ -127,7 +126,8 @@ speed = -40.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark"]
 position = Vector2( 367, 165 )
-frames = SubResource( 8 )
+frames = SubResource( 10 )
+frame = 4
 playing = true
 
 [node name="shark2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -139,8 +139,8 @@ speed = -100.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark2"]
 position = Vector2( 367, 165 )
-frames = SubResource( 8 )
-frame = 5
+frames = SubResource( 10 )
+frame = 3
 playing = true
 
 [node name="agua1" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -165,5 +165,5 @@ texture = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Score" to="." method="_on_score_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opções" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_options_pressed"]

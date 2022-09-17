@@ -8,7 +8,8 @@ onready var local_score = get_node("Score")
 
 var score_rank = 1
 
-func _ready():	
+func _ready():
+		
 	loadScoreList()	
 	
 
@@ -50,6 +51,7 @@ func loadScoreList():
 		
 	if !Globals.score_cheked:
 		get_node("Menu").visible = true
+		get_node("Menu/JogarNovamente").grab_focus()
 				
 
 func _on_quit_pressed():

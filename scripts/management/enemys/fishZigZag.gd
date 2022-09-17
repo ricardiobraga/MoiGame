@@ -32,8 +32,7 @@ func y_variation(delta):
 
 	if up_y:			
 		if get_position().y == y_position or get_position().y > y_position - y_speed:
-			y_pos = get_position().y - y_speed * delta		
-			print("1: ", y_pos)
+			y_pos = get_position().y - y_speed * delta				
 			return y_pos			
 	
 	if get_position().y < y_position - 10:
