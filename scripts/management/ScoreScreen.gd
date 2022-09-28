@@ -5,10 +5,13 @@ var score_element = preload("res://scenes/management/ScoreList.tscn")
 var score_new_record = preload("res://scenes/management/NewRecord.tscn")
 
 onready var local_score = get_node("Score")
+onready var btn_menu = get_node("Menu/Menu")
+
 
 var score_rank = 1
 
 func _ready():	
+	btn_menu.grab_focus()
 	loadScoreList()	
 	
 	
@@ -62,3 +65,5 @@ func on_voltar_menu_pressed():
 	Globals.render_new_score = false
 	Globals.score_cheked = false
 	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")
+
+

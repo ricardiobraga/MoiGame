@@ -2,7 +2,7 @@ extends Area2D
 
 var moi
 
-export(int) var speed = 2
+export(int) var speed = 4
 
 var y_position
 var y_pos

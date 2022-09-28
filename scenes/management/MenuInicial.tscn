@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/management/Menu.gd" type="Script" id=2]
@@ -13,6 +13,30 @@
 size = 30
 outline_color = Color( 0.815686, 0.411765, 0.0862745, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id=12]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id=13]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id=14]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
@@ -67,6 +91,7 @@ margin_bottom = 29.0
 custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 0.0745098, 0.352941, 0.4, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 11 )
 text = "JOGAR"
 flat = true
 
@@ -77,6 +102,7 @@ margin_bottom = 62.0
 custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 12 )
 text = "SCORE"
 flat = true
 
@@ -87,6 +113,7 @@ margin_bottom = 95.0
 custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 13 )
 text = "OPÇÕES"
 flat = true
 
@@ -97,6 +124,7 @@ margin_bottom = 128.0
 custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 14 )
 text = "SAIR"
 flat = true
 
@@ -127,7 +155,7 @@ speed = -40.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="shark2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -140,7 +168,7 @@ speed = -100.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark2"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="agua1" type="ParallaxLayer" parent="ParallaxBackground"]

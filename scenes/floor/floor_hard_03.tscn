@@ -72,8 +72,12 @@ tile_data = PoolIntArray( 458752, 1, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2359373, 22, 0, 2424836, 17, 0, 2424838, 17, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2621478, 10, 0, 2621479, 11, 0, 2752570, 7, 0, 2818056, 7, 0 )
+tile_data = PoolIntArray( 2097211, 21, 0, 2359373, 22, 0, 2424929, 17, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2621479, 11, 0, 2752535, 4, 0, 2752570, 7, 0, 2818056, 7, 0 )
 
 [node name="fish" parent="." instance=ExtResource( 2 )]
 position = Vector2( 749, 281 )
+speed = 4
+
+[node name="fish2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 318, 281 )
 speed = 4

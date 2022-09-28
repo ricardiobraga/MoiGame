@@ -15,11 +15,27 @@ var intervalo = 3
 var interval_min = 0.8
 var interval_max = 3
 
+var hard_on = false
+
 var floor_instances = [ 
-						preload("res://scenes/floor/floor_easy_02.tscn"),						
-						
-												
+						preload("res://scenes/floor/floor_easy_01.tscn"),
+						preload("res://scenes/floor/floor_easy_02.tscn"),
+						preload("res://scenes/floor/floor_easy_03.tscn"),
+						preload("res://scenes/floor/floor_easy_04.tscn"),
+						preload("res://scenes/floor/floor_easy_05.tscn"),
+						preload("res://scenes/floor/floor_easy_06.tscn"),
+						preload("res://scenes/floor/floor_easy_07.tscn"),												
 					  ]
+					
+var floor_instances_hard = [
+						preload("res://scenes/floor/floor_hard_01.tscn"),
+						preload("res://scenes/floor/floor_hard_02.tscn"),
+						preload("res://scenes/floor/floor_hard_03.tscn"),
+						preload("res://scenes/floor/floor_hard_04.tscn"),
+						preload("res://scenes/floor/floor_hard_07.tscn"),
+						preload("res://scenes/floor/floor_hard_06.tscn"),
+						preload("res://scenes/floor/floor_hard_07.tscn"),
+]
 
 onready var positition_start = get_node("FloorInstances").get_child(0).global_position.x
 
@@ -40,18 +56,18 @@ func _ready():
 func _physics_process(delta):
 	if !start:
 		return
+		
 	moveCamera(delta)
-	
 	
 	time += delta
 	
 	if int(time)  == 10:
 		Globals.velocity += 20
 		time = 0
-		
-	
+			
 	spawn_floor(delta)
 	score_control()
+	level_control()
 	
 		
 
@@ -78,6 +94,17 @@ func spawn_floor(_delta):
 					
 func moveCamera(delta):
 	camera.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2()).normalized()
+	
+func level_control():
+	if Globals.score >= 100:	
+		if hard_on:
+			return
+			
+		if !hard_on:
+			floor_instances += floor_instances_hard
+			print(floor_instances)
+			hard_on = true
+	
 
 func _on_start_timeout():
 	start = true

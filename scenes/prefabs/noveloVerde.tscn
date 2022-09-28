@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/novelo.gd" type="Script" id=1]
-[ext_resource path="res://assets/novelo3.png" type="Texture" id=2]
-[ext_resource path="res://assets/6x6Buble-yellow.png" type="Texture" id=3]
+[ext_resource path="res://assets/6x6Buble-yellow.png" type="Texture" id=2]
+[ext_resource path="res://assets/novelo3.png" type="Texture" id=3]
 [ext_resource path="res://assets/novelo2.png" type="Texture" id=4]
 [ext_resource path="res://assets/novelo1.png" type="Texture" id=5]
 
@@ -68,23 +68,23 @@ atlas = ExtResource( 4 )
 region = Rect2( 48, 0, 12, 32 )
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 12, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 12, 0, 12, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 12, 32 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 36, 0, 12, 32 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 12, 32 )
 
 [sub_resource type="SpriteFrames" id=6]
@@ -115,11 +115,12 @@ script = ExtResource( 1 )
 position = Vector2( 0, -5 )
 amount = 30
 process_material = SubResource( 10 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-animation = "roxo"
+animation = "verde"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

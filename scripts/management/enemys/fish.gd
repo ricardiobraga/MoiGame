@@ -3,6 +3,7 @@ extends Area2D
 var moi
 
 export(int) var speed = 2
+export(int) var pontos = 10
 
 var y_position
 var y_pos
@@ -20,7 +21,7 @@ func _physics_process(delta):
 	if !jump:
 		if get_global_position().x < moi.get_global_position().x:
 			jump = true
-			Globals.score += 10 
+			Globals.score += pontos
 			
 func move(delta):
 	var x_position = (get_position().x - speed + delta)

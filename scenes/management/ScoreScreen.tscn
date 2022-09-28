@@ -1,7 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/management/ScoreScreen.gd" type="Script" id=2]
+[ext_resource path="res://scripts/ParallaxLayerMovement.gd" type="Script" id=3]
+[ext_resource path="res://assets/bg.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/shark.png" type="Texture" id=5]
+[ext_resource path="res://assets/watereffect-claro.png" type="Texture" id=6]
+[ext_resource path="res://assets/watereffect-escuro.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 640, 360 )
+modulate_color = Color( 1, 1, 1, 0.670588 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -11,13 +21,68 @@ font_data = ExtResource( 1 )
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="StyleBoxEmpty" id=14]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 150, 53 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 150, 0, 150, 53 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 300, 0, 150, 53 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 450, 0, 150, 53 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 600, 0, 150, 53 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 750, 0, 150, 53 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -148.0
+margin_right = 130.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 12 )
 
 [node name="Game Over" type="Label" parent="."]
 anchor_left = 0.5
@@ -66,9 +131,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -88.0
+margin_left = -130.0
 margin_top = -28.0
-margin_right = 88.0
+margin_right = 130.0
 margin_bottom = -12.0
 grow_horizontal = 2
 custom_constants/separation = 20
@@ -111,27 +176,83 @@ margin_bottom = 143.0
 custom_constants/separation = 40
 alignment = 1
 
-[node name="JogarNovamente" type="Button" parent="Menu"]
-visible = false
-margin_right = 98.0
-margin_bottom = 30.0
-custom_fonts/font = SubResource( 3 )
-text = "JOGAR NOVAMENTE"
-
 [node name="Menu" type="Button" parent="Menu"]
 margin_left = 87.0
 margin_right = 125.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+custom_fonts/font = SubResource( 11 )
+custom_styles/focus = SubResource( 13 )
 text = "MENU"
+flat = true
 
 [node name="Quit" type="Button" parent="Menu"]
 margin_left = 165.0
 margin_right = 199.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+custom_fonts/font = SubResource( 11 )
+custom_styles/focus = SubResource( 14 )
 text = "QUIT"
+flat = true
 
-[connection signal="pressed" from="Menu/JogarNovamente" to="." method="_on_Jogar_novamente_pressed"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="bg" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.329412, 0.721569, 0.8, 1 )
+motion_mirroring = Vector2( 640, 0 )
+script = ExtResource( 3 )
+speed = -5.0
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/bg"]
+position = Vector2( 320, 181 )
+texture = ExtResource( 4 )
+
+[node name="shark" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.329412, 0.721569, 0.8, 1 )
+position = Vector2( 169, -61 )
+motion_mirroring = Vector2( 1200, 0 )
+script = ExtResource( 3 )
+speed = -40.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark"]
+position = Vector2( 367, 165 )
+frames = SubResource( 10 )
+frame = 4
+playing = true
+
+[node name="shark2" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.329412, 0.721569, 0.8, 1 )
+position = Vector2( 524, 11 )
+motion_mirroring = Vector2( 1200, 0 )
+script = ExtResource( 3 )
+speed = -100.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark2"]
+position = Vector2( 367, 165 )
+frames = SubResource( 10 )
+frame = 3
+playing = true
+
+[node name="agua1" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.360784 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 3 )
+speed = 2.0
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/agua1"]
+position = Vector2( 640, 180 )
+texture = ExtResource( 6 )
+
+[node name="agua2" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0.239216 )
+motion_mirroring = Vector2( 1280, 0 )
+script = ExtResource( 3 )
+speed = -4.0
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/agua2"]
+position = Vector2( 640, 180 )
+texture = ExtResource( 7 )
+
 [connection signal="pressed" from="Menu/Menu" to="." method="on_voltar_menu_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]

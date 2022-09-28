@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://scenes/prefabs/enemys/Fish_03.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/prefabs/enemys/Fish_04_variation1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/sprites/floor.png" type="Texture" id=3]
 [ext_resource path="res://assets/floor.png" type="Texture" id=5]
+[ext_resource path="res://scenes/prefabs/enemys/Fish_04.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/prefabs/enemys/Fish_04_variation2.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=3]
 
@@ -72,8 +74,23 @@ tile_data = PoolIntArray( 458752, 1, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2359373, 22, 0, 2424836, 17, 0, 2424838, 17, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2621478, 10, 0, 2621479, 11, 0, 2752570, 7, 0, 2818056, 7, 0 )
+tile_data = PoolIntArray( 2228285, 33, 0, 2359373, 22, 0, 2424836, 17, 0, 2424838, 17, 0, 2555908, 6, 0, 2555909, 8, 0, 2555968, 13, 0, 2621478, 10, 0, 2621479, 11, 0, 2752570, 7, 0, 2818056, 7, 0 )
 
-[node name="fish" parent="." instance=ExtResource( 2 )]
-position = Vector2( 749, 281 )
+[node name="fish3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 669, 344 )
 speed = 4
+
+[node name="fish4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 681, 333 )
+speed = 4
+pontos = 0
+
+[node name="fish6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 703, 333 )
+speed = 4
+pontos = 0
+
+[node name="fish5" parent="." instance=ExtResource( 7 )]
+position = Vector2( 689, 343 )
+speed = 4
+pontos = 0

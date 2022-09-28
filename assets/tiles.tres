@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=5 format=2]
+[gd_resource type="TileSet" load_steps=6 format=2]
 
 [ext_resource path="res://assets/tiles-elements.png" type="Texture" id=1]
 [ext_resource path="res://assets/sand-back.png" type="Texture" id=2]
 [ext_resource path="res://assets/sand-back-dark.png" type="Texture" id=3]
 [ext_resource path="res://assets/tiles-elements-dark.png" type="Texture" id=4]
+[ext_resource path="res://assets/stone_01.png" type="Texture" id=5]
 
 [resource]
 0/name = "sand-back.png 0"
@@ -468,3 +469,17 @@
 32/shape_one_way_margin = 0.0
 32/shapes = [  ]
 32/z_index = 0
+33/name = "stone_01"
+33/texture = ExtResource( 5 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 1, 0, 59, 59 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape_one_way = false
+33/shape_one_way_margin = 0.0
+33/shapes = [  ]
+33/z_index = 0
