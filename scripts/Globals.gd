@@ -12,6 +12,7 @@ func _ready():
 	print("teste")
 	DataManagement.load_hi_score()
 	hi_score.sort_custom(self, "ordenateScore")	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/management/label_timer.gd" type="Script" id=2]
+[ext_resource path="res://assets/sound/select.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -21,7 +22,7 @@ margin_left = -23.0
 margin_top = -23.0
 margin_right = 23.0
 margin_bottom = 23.0
-custom_colors/font_color_shadow = Color( 0.803922, 0.435294, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.678431, 0.239216, 0.396078, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_fonts/font = SubResource( 1 )
@@ -33,4 +34,12 @@ valign = 1
 wait_time = 4.0
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.546
+
+[node name="TimerSound" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerSound" to="." method="_on_timerSound_timeout"]

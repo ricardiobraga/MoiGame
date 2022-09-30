@@ -76,7 +76,7 @@ format = 1
 tile_data = PoolIntArray( 2097221, 21, 0, 2162753, 23, 0, 2228226, 23, 0, 2621486, 13, 0, 2752555, 5, 0, 2752564, 5, 0, 2752570, 7, 0, 2818056, 7, 0, 2818083, 5, 0 )
 
 [node name="fish" parent="." instance=ExtResource( 2 )]
-position = Vector2( 462, 335 )
+position = Vector2( 339, 335 )
 speed = 4
 
 [node name="fish2" parent="." instance=ExtResource( 4 )]

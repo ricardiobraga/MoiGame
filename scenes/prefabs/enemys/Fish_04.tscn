@@ -32,7 +32,7 @@ scale_curve = SubResource( 16 )
 color_ramp = SubResource( 15 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6.5, 4 )
+extents = Vector2( 4.5, 2 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
@@ -78,7 +78,7 @@ lifetime = 2.0
 process_material = SubResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, -1 )
+position = Vector2( -0.5, -3 )
 shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

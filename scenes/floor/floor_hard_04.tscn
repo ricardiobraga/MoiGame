@@ -77,6 +77,7 @@ tile_data = PoolIntArray( 2228285, 33, 0, 2359373, 22, 0, 2424836, 17, 0, 242483
 
 [node name="fish3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 179, 281 )
+speed = 4
 
 [node name="fish" parent="." instance=ExtResource( 2 )]
 position = Vector2( 750, 348 )

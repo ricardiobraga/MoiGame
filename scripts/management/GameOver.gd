@@ -9,7 +9,7 @@ onready var local_score = get_node("Score")
 var score_rank = 1
 
 func _ready():
-		
+	local_score.text = "Sua pontuação foi: " + str(Globals.score) 
 	loadScoreList()	
 	
 
@@ -63,7 +63,8 @@ func _on_Jogar_novamente_pressed():
 	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
-	get_tree().change_scene("res://scenes/main.tscn")	
+	SceneChanger.change_scene("res://scenes/main.tscn")
+#	get_tree().change_scene("res://scenes/main.tscn")	
 
 
 func on_voltar_menu_pressed():
@@ -71,4 +72,5 @@ func on_voltar_menu_pressed():
 	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
-	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")
+	SceneChanger.change_scene("res://scenes/management/MenuInicial.tscn")
+#	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")

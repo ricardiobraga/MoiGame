@@ -11,9 +11,13 @@ var up_y = true
 
 var jump = false
 
+
+
 func _ready():
 	moi = get_node("/root/Main/Moi")
 	y_position = get_position().y
+
+
 	
 func _physics_process(delta):
 	move(delta)
@@ -27,5 +31,8 @@ func move(delta):
 	var x_position = (get_position().x - speed + delta)
 	set_position(Vector2(x_position, get_position().y))	
 
-func _on_body_entered(body):	
+func _on_body_entered(body):
+	DeathSound.play()
+#	get_node("/root/Main").start = false		
+#	SceneChanger.change_scene("res://scenes/management/GameOver.tscn")
 	get_tree().change_scene("res://scenes/management/GameOver.tscn")

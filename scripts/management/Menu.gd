@@ -18,14 +18,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
+ 
 func _on_start_pressed():
-	var change = get_tree().change_scene("res://scenes/main.tscn")
+	
+#	var change = get_tree().change_scene("res://scenes/main.tscn")	
+	SceneChanger.change_scene("res://scenes/main.tscn")
 
 
 func _on_score_pressed():
-	
-	var change = get_tree().change_scene("res://scenes/management/ScoreScreen.tscn")
+#	var change = get_tree().change_scene("res://scenes/management/ScoreScreen.tscn")
+	SceneChanger.change_scene("res://scenes/management/ScoreScreen.tscn")
 
 
 func _on_quit_pressed():
@@ -34,4 +36,5 @@ func _on_quit_pressed():
 
 
 func _on_options_pressed():
-	var change = get_tree().change_scene("res://scenes/management/options.tscn")
+#	var change = get_tree().change_scene("res://scenes/management/options.tscn")
+	SceneChanger.change_scene("res://scenes/management/options.tscn")

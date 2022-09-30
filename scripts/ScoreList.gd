@@ -17,6 +17,7 @@ var is_new_record = false
 func _ready() -> void:	
 	if is_new_record:	
 		instanceUndeline(get_node("PanelContainer/HBoxContainer/HBoxScores/Label1"))
+	
 		
 
 func _physics_process(_delta):
@@ -31,11 +32,15 @@ func setLetter():
 		var label3 = get_node("PanelContainer/HBoxContainer/HBoxScores/Label3")		
 		var labels = [label1, label2, label3]		
 			
-		if  Input.is_action_just_pressed("ui_down") and n < 35  and n_position < 3 and n_position >=0 :
+		if  Input.is_action_just_pressed("ui_down") and n_position < 3 and n_position >=0 :
+			if n == 35:
+				n = -1
 			n += 1			
 			labels[n_position].text = str(arrayLetters[n])					
 			
-		if  Input.is_action_just_pressed("ui_up") and n > 0  and n_position < 3 and n_position >=0:
+		if  Input.is_action_just_pressed("ui_up") and n_position < 3 and n_position >=0:
+			if n == 0:
+				n = 36
 			n -= 1				
 			labels[n_position].text = str(arrayLetters[n])				
 			
@@ -47,15 +52,29 @@ func setLetter():
 				instanceUndeline(labels[n_position])
 			if Input.is_action_just_pressed("ui_select") and n_position == 2:
 				end_array += 1				
-				if end_array == 2:
+				if end_array >= 2:
 					saveNewRecord(labels)
 										
 			
 		if Input.is_action_just_pressed("ui_left") and n_position > 0 :
+			if end_array >= 1:
+				end_array -= 1
 			labels[n_position].get_child(0).queue_free()
 			n_position -= 1
-			n = 0
+			n = 0			
 			instanceUndeline(labels[n_position])
+			
+		if Input.is_action_just_pressed("ui_right")and n_position <= 2:			
+			if n_position < 2:			
+				labels[n_position].get_child(0).queue_free()
+				n_position += 1	
+				n = 0
+				instanceUndeline(labels[n_position])
+				
+			if Input.is_action_just_pressed("ui_right") and n_position == 1:
+				end_array = 2				
+				
+#			
 			
 			
 func saveNewRecord(array):	

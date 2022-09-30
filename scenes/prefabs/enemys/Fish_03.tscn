@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/sprites/enemys/enemy3.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Fish_03.gd" type="Script" id=2]
+[ext_resource path="res://scenes/management/fishSound.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 20.0998
+radius = 15.1327
 
 [sub_resource type="Gradient" id=15]
 offsets = PoolRealArray( 0.0958904, 0.253425, 0.726027, 1 )
@@ -198,11 +199,11 @@ script = ExtResource( 2 )
 speed = 3
 
 [node name="CollisionShapeUp" type="CollisionShape2D" parent="."]
-position = Vector2( -7, -5 )
+position = Vector2( -9, -7 )
 shape = SubResource( 14 )
 
 [node name="CollisionShapeDown" type="CollisionShape2D" parent="."]
-position = Vector2( -6, 7 )
+position = Vector2( -9, 9 )
 shape = SubResource( 14 )
 
 [node name="fishParticles" type="Particles2D" parent="."]
@@ -213,8 +214,10 @@ process_material = SubResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 9 )
-animation = "Down"
-frame = 9
+animation = "Up"
+frame = 10
 playing = true
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 3 )]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

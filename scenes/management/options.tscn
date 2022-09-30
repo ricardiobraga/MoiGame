@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/font/kenney_pixel_20.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/management/options.gd" type="Script" id=2]
@@ -7,9 +7,19 @@
 [ext_resource path="res://assets/bg.png" type="Texture" id=5]
 [ext_resource path="res://assets/watereffect-escuro.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/shark.png" type="Texture" id=7]
+[ext_resource path="res://scripts/management/Panel.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 640, 360 )
+modulate_color = Color( 1, 1, 1, 0.670588 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.2, 0.2, 0.2, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 7 )
@@ -48,6 +58,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -154.0
+margin_right = 132.0
+margin_bottom = 146.0
+custom_styles/panel = SubResource( 13 )
+script = ExtResource( 8 )
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
 anchor_right = 1.0
@@ -66,20 +88,22 @@ margin_bottom = 38.0
 alignment = 1
 
 [node name="Reset" type="Button" parent="VBoxContainer"]
-margin_top = 7.0
+margin_top = 14.0
 margin_right = 171.0
 margin_bottom = 36.0
-custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+custom_colors/font_color_focus = Color( 0.678431, 0.239216, 0.396078, 1 )
 custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 11 )
 text = "RESET SCORE"
 flat = true
 
 [node name="Voltar" type="Button" parent="VBoxContainer"]
 margin_top = 40.0
 margin_right = 171.0
-margin_bottom = 69.0
-custom_colors/font_color_focus = Color( 0.815686, 0.411765, 0.0862745, 1 )
+margin_bottom = 62.0
+custom_colors/font_color_focus = Color( 0.678431, 0.239216, 0.396078, 1 )
 custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 12 )
 text = "VOLTAR"
 flat = true
 
@@ -105,7 +129,7 @@ speed = -40.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="shark2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -118,7 +142,7 @@ speed = -100.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark2"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="agua1" type="ParallaxLayer" parent="ParallaxBackground"]

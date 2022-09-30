@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/novelo.gd" type="Script" id=1]
 [ext_resource path="res://assets/novelo3.png" type="Texture" id=2]
 [ext_resource path="res://assets/6x6Buble-yellow.png" type="Texture" id=3]
 [ext_resource path="res://assets/novelo2.png" type="Texture" id=4]
 [ext_resource path="res://assets/novelo1.png" type="Texture" id=5]
+[ext_resource path="res://assets/setas.png" type="Texture" id=6]
 
 [sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.64689, 0.0, 0, 0 ]
@@ -108,6 +109,38 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=7]
 radius = 14.0357
 
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 6 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 6 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+} ]
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource( 1 )
 
@@ -125,5 +158,12 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 7 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -24 )
+frames = SubResource( 27 )
+animation = "idle"
+frame = 2
+playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

@@ -56,7 +56,8 @@ func _on_Jogar_novamente_pressed():
 	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
-	get_tree().change_scene("res://scenes/main.tscn")	
+	SceneChanger.change_scene("res://scenes/main.tscn")
+#	get_tree().change_scene("res://scenes/main.tscn")	
 
 
 func on_voltar_menu_pressed():
@@ -64,6 +65,7 @@ func on_voltar_menu_pressed():
 	Globals.velocity = 200
 	Globals.render_new_score = false
 	Globals.score_cheked = false
-	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")
+	SceneChanger.change_scene("res://scenes/management/MenuInicial.tscn")
+#	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")
 
 

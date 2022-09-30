@@ -50,14 +50,19 @@ func jump(delta):
 			$ParticlesFront.emitting = true
 #		$AnimatedSprite.play("crounch")
 	
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_pressed("ui_select") or Input.is_action_pressed("ui_up"):
 		velocity.y += fall_speed * delta
+		
 		$AnimatedSprite.play("jump")
 		$ParticlesBack.emitting = false
 		$ParticlesFront.emitting = false				
 	else:
 		velocity.y += fall_speed  * delta * modificar_gravidade	
-	if Input.is_action_just_pressed("ui_select") and jump_count < 2:
+	if Input.is_action_just_pressed("ui_select") or Input.is_action_just_pressed("ui_up") :	
+		if jump_count > 1:
+			return
+			
+		$AudioStreamPlayer.play()
 		$AnimatedSprite.play("jump")
 		$ParticlesBack.emitting = false
 		$ParticlesFront.emitting = false				

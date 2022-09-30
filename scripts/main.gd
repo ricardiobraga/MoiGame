@@ -17,6 +17,16 @@ var interval_max = 3
 
 var hard_on = false
 
+var floor_instances_base = [ 
+						preload("res://scenes/floor/floor_easy_01.tscn"),
+						preload("res://scenes/floor/floor_easy_02.tscn"),
+						preload("res://scenes/floor/floor_easy_03.tscn"),
+						preload("res://scenes/floor/floor_easy_04.tscn"),
+						preload("res://scenes/floor/floor_easy_05.tscn"),
+						preload("res://scenes/floor/floor_easy_06.tscn"),
+						preload("res://scenes/floor/floor_easy_07.tscn"),												
+					  ]
+
 var floor_instances = [ 
 						preload("res://scenes/floor/floor_easy_01.tscn"),
 						preload("res://scenes/floor/floor_easy_02.tscn"),
@@ -26,6 +36,8 @@ var floor_instances = [
 						preload("res://scenes/floor/floor_easy_06.tscn"),
 						preload("res://scenes/floor/floor_easy_07.tscn"),												
 					  ]
+					
+					
 					
 var floor_instances_hard = [
 						preload("res://scenes/floor/floor_hard_01.tscn"),
@@ -41,7 +53,7 @@ onready var positition_start = get_node("FloorInstances").get_child(0).global_po
 
 
 func _ready():
-	
+	floor_instances = floor_instances_base
 	var player_instance = player.instance()
 	player_instance.set_position(Vector2(78,323))
 	get_node(".").add_child(player_instance)		
@@ -54,15 +66,15 @@ func _ready():
 
 
 func _physics_process(delta):
+	
 	if !start:
 		return
-		
 	moveCamera(delta)
 	
 	time += delta
 	
 	if int(time)  == 10:
-		Globals.velocity += 20
+		Globals.velocity += 5
 		time = 0
 			
 	spawn_floor(delta)
@@ -96,13 +108,12 @@ func moveCamera(delta):
 	camera.move_and_slide(Vector2(Globals.velocity + delta, 0), Vector2()).normalized()
 	
 func level_control():
-	if Globals.score >= 100:	
+	if Globals.score >= 10:	
 		if hard_on:
 			return
 			
 		if !hard_on:
-			floor_instances += floor_instances_hard
-			print(floor_instances)
+			floor_instances += floor_instances_hard			
 			hard_on = true
 	
 
@@ -116,6 +127,7 @@ func _on_start_timeout():
 func score_control():
 	get_node("CanvasLayer/Score").text = "Score: " + str(Globals.score) 
 	
+
 	
 
 

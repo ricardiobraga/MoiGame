@@ -11,7 +11,9 @@ config_version=4
 [application]
 
 config/name="MoiGame"
-run/main_scene="res://scenes/management/MenuInicial.tscn"
+run/main_scene="res://scenes/introMoira.tscn"
+boot_splash/image="res://assets/transparent.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -19,6 +21,10 @@ config/icon="res://icon.png"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 Globals="*res://scripts/Globals.gd"
 DataManagement="*res://scripts/management/data_management.gd"
+SceneChanger="*res://scenes/management/SceneChanger.tscn"
+BgSound="*res://scenes/management/BgSound.tscn"
+Pause="*res://scenes/management/Pause.tscn"
+DeathSound="*res://scenes/management/deathSound.tscn"
 
 [display]
 

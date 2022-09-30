@@ -46,5 +46,8 @@ func y_variation(delta):
 
 		
 
-func _on_body_entered(body):	
+func _on_body_entered(body):
+	
+	DeathSound.play()
+#	SceneChanger.change_scene("res://scenes/management/GameOver.tscn")	
 	get_tree().change_scene("res://scenes/management/GameOver.tscn")

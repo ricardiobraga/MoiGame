@@ -29,6 +29,9 @@ func move(delta):
 	set_position(Vector2(x_position, get_position().y))	
 
 func _on_body_entered(body):	
+	DeathSound.play()
+			
+#	SceneChanger.change_scene("res://scenes/management/GameOver.tscn")
 	get_tree().change_scene("res://scenes/management/GameOver.tscn")	
 
 	
