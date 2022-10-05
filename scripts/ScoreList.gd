@@ -13,8 +13,18 @@ var end_array = 0
 
 var is_new_record = false
 
+var metadata = {"name": ""}
+
 
 func _ready() -> void:	
+	SilentWolf.configure({
+		"api_key": "LKfINFybK69f4XKboKSss5EPRXeyLgMXanF536iF",
+		"game_id": "MoiGame",
+		"game_version": "1.0.0",
+		"log_level": 0
+	})
+	
+	
 	if is_new_record:	
 		instanceUndeline(get_node("PanelContainer/HBoxContainer/HBoxScores/Label1"))
 	
@@ -81,16 +91,21 @@ func saveNewRecord(array):
 	var player_name = ""
 	for item in array:
 		player_name += item.text
+	
+	var score_id = yield(SilentWolf.Scores.persist_score(player_name, Globals.score), "sw_score_posted")
+	get_tree().change_scene("res://scenes/management/GameOver.tscn")
+	Globals.score_cheked = false
+	return
 			
-	for item in Globals.hi_score:
-		if 	Globals.score > item.score :
-			
-			Globals.hi_score.push_front({ "name": player_name, "score": int(get_node("PanelContainer/HBoxContainer/PlayerScore").text) }) 
-			Globals.hi_score.pop_back()
-			DataManagement.save_hi_score(Globals.hi_score)
-			get_tree().change_scene("res://scenes/management/GameOver.tscn")
-			Globals.score_cheked = false
-			return
+#	for item in Globals.hi_score:
+#		if 	Globals.score > item.score :
+#
+#			Globals.hi_score.push_front({ "name": player_name, "score": int(get_node("PanelContainer/HBoxContainer/PlayerScore").text) }) 
+#			Globals.hi_score.pop_back()
+#			DataManagement.save_hi_score(Globals.hi_score)
+#			get_tree().change_scene("res://scenes/management/GameOver.tscn")
+#			Globals.score_cheked = false
+#			return
 	
 	
 func instanceUndeline(node):

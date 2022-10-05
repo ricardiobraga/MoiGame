@@ -242,7 +242,7 @@ speed = -40.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="shark2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -255,7 +255,7 @@ speed = -100.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/shark2"]
 position = Vector2( 367, 165 )
 frames = SubResource( 10 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="agua1" type="ParallaxLayer" parent="ParallaxBackground"]

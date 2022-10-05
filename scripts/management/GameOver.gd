@@ -9,13 +9,26 @@ onready var local_score = get_node("Score")
 var score_rank = 1
 
 func _ready():
+	SilentWolf.configure({
+		"api_key": "LKfINFybK69f4XKboKSss5EPRXeyLgMXanF536iF",
+		"game_id": "MoiGame",
+		"game_version": "1.0.0",
+		"log_level": 0
+	})	
+	
+	
+	
+	print(Globals.score)
+	
 	local_score.text = "Sua pontuação foi: " + str(Globals.score) 
 	loadScoreList()	
+	
 	
 
 	
 func saveNewRecord(new_record):	
-	DataManagement.score_list.sort_custom(self, "ordenateScore")	
+	DataManagement.score_list.sort_custom(self, "ordenateScore")
+		
 	for item in DataManagement.score_list:
 		if new_record.score > item.score:
 			item.name = new_record.name
@@ -23,15 +36,21 @@ func saveNewRecord(new_record):
 		return	
 	
 	
-func loadScoreList():
-	Globals.hi_score.sort_custom(Globals, "ordenateScore")
+func loadScoreList():	
 	
-	for item in Globals.hi_score:
-		if score_rank > 5:
+	yield(SilentWolf.Scores.get_high_scores(5), "sw_scores_received")
+	var scores_sw = SilentWolf.Scores.scores
+	
+#	for item in scores_sw:
+#		print("Scores: " + str(item.player_name))
+	
+	for item in scores_sw:
+		if score_rank > 5:						
 			return
 		
 		if Globals.score > item.score and Globals.render_new_score == false:
 			Globals.score_cheked = true
+			
 			local_score.text = "Você estabeleceu um novo record"			
 			var player_score = score_new_record.instance()
 			player_score.is_new_record = true
@@ -43,12 +62,12 @@ func loadScoreList():
 			
 		var player_score = score_element.instance()
 		player_score.get_node("HBoxContainer/RankPosition").text  =  str(score_rank)		
-		player_score.get_node("HBoxContainer/PlayerName").text = item.name
+		player_score.get_node("HBoxContainer/PlayerName").text = item.player_name
 		player_score.get_node("HBoxContainer/PlayerScore").text =str(item.score) 
 		get_node("ScoreList").add_child(player_score)		
 			
 		score_rank += 1
-		
+	print(Globals.score_cheked)	
 	if !Globals.score_cheked:
 		get_node("Menu").visible = true
 		get_node("Menu/JogarNovamente").grab_focus()
@@ -74,3 +93,9 @@ func on_voltar_menu_pressed():
 	Globals.score_cheked = false
 	SceneChanger.change_scene("res://scenes/management/MenuInicial.tscn")
 #	get_tree().change_scene("res://scenes/management/MenuInicial.tscn")
+
+func firstScores():	
+	for item in DataManagement.score_list:		
+		var score_id = yield(SilentWolf.Scores.persist_score(item.name, item.score), "sw_score_posted")
+		
+		

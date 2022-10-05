@@ -6,24 +6,29 @@ const SAVE_FILE_PATH = "user://save.dat"
 
 var score_list = [ 
 	{
-		"name": "RIC",
-		"score": 10
+		"name": "AAA",
+		"score": 10,
+		
 	}, 
 	{
-		"name": "TAM",
-		"score": 20
+		"name": "AAA",
+		"score": 20,
+		
 	},
 	{
-		"name": "Olga",
-		"score": 0
+		"name": "CCC",
+		"score": 0,
+		
 	},
 		{
-		"name": "TAM",
-		"score": 0
+		"name": "DDD",
+		"score": 0,
+		
 	},
 		{
-		"name": "TER",
-		"score": 50
+		"name": "EEE",
+		"score": 50,
+		
 	},
 		
 ]
